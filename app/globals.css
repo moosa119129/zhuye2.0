@@ -1,0 +1,345 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Quicksand:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #FFFBF4;
+    --foreground: #43382D;
+    --primary: #E57550;
+    --primary-foreground: #FFFFFF;
+    --secondary: #F6EFE7;
+    --secondary-foreground: #43382D;
+    --muted: #F1EAE2;
+    --muted-foreground: #8A7E73;
+    --border: #EBE4DA;
+    --card: #FFFFFF;
+    --card-foreground: #43382D;
+    --radius: 16px;
+  }
+
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-warm-white text-charcoal;
+    font-family: 'Inter', 'PingFang SC', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Noto Serif SC', 'Source Han Serif CN', Georgia, serif;
+    @apply text-charcoal font-bold;
+    letter-spacing: -0.02em;
+  }
+
+  /* 滚动条美化 */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #F5F0EB;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #C8B8A8;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #E8502A;
+  }
+
+  /* 选中文字 */
+  ::selection {
+    background: rgba(229, 117, 80, 0.15);
+    color: #E57550;
+  }
+}
+
+@layer components {
+
+  /* 按钮 (Neo-brutalism) */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 bg-pop-blue text-white font-bold px-6 py-3 border-[3px] border-charcoal shadow-pop-sm translate-x-[-2px] translate-y-[-2px] rounded-none transition-all duration-150 hover:-translate-y-1 hover:-translate-x-1 hover:shadow-pop-md active:translate-y-0 active:translate-x-0 active:shadow-none;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 bg-white text-charcoal font-bold px-6 py-3 border-[3px] border-charcoal shadow-pop-sm translate-x-[-2px] translate-y-[-2px] rounded-none transition-all duration-150 hover:-translate-y-1 hover:-translate-x-1 hover:shadow-pop-md hover:bg-pop-yellow active:translate-y-0 active:translate-x-0 active:shadow-none;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 bg-transparent text-charcoal font-bold px-4 py-2 border-[3px] border-transparent rounded-none transition-all duration-150 hover:border-charcoal hover:bg-pop-cyan hover:shadow-pop-sm hover:-translate-y-0.5 hover:-translate-x-0.5 active:translate-y-0 active:translate-x-0 active:shadow-none;
+  }
+
+  /* 卡片 (Neo-brutalism) */
+  .card {
+    @apply bg-card border-[3px] border-charcoal shadow-pop-md transition-all duration-200 hover:shadow-pop-lg hover:-translate-y-1 hover:-translate-x-1;
+  }
+
+  /* 章节标题样式 */
+  .section-label {
+    @apply text-warm-orange text-sm font-semibold tracking-widest uppercase;
+  }
+
+  .section-title {
+    @apply font-serif text-3xl md:text-4xl text-charcoal font-bold leading-tight;
+  }
+
+  .section-subtitle {
+    @apply text-charcoal-muted text-base md:text-lg leading-relaxed;
+  }
+
+  /* 分隔线 */
+  .divider {
+    @apply w-12 h-1 bg-warm-orange rounded-full;
+  }
+
+  /* 徽章 */
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-muted text-charcoal-light;
+  }
+
+  .badge-orange {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-orange-50 text-warm-orange;
+  }
+}
+
+@layer utilities {
+  .text-gradient-orange {
+    @apply bg-gradient-to-r from-warm-orange to-warm-orange-light bg-clip-text text-transparent;
+  }
+
+  .bg-warm-gradient {
+    background: linear-gradient(135deg, #FFFBF4 0%, #F6EFE7 100%);
+  }
+
+  /* 波普风网纹点缀背景 (Halftone Dots) */
+  .bg-halftone {
+    background-image: radial-gradient(circle, #43382D 10%, transparent 11%), radial-gradient(circle, #43382D 10%, transparent 11%);
+    background-size: 10px 10px;
+    background-position: 0 0, 5px 5px;
+    background-repeat: repeat;
+  }
+
+  .bg-halftone-light {
+    background-image: radial-gradient(circle, rgba(67, 56, 45, 0.15) 10%, transparent 11%), radial-gradient(circle, rgba(67, 56, 45, 0.15) 10%, transparent 11%);
+    background-size: 14px 14px;
+    background-position: 0 0, 7px 7px;
+    background-repeat: repeat;
+  }
+
+  /* 波普风线性渐变色 (用于Banner等特殊强调区) */
+  .bg-pop-gradient {
+    background: linear-gradient(135deg, #FF5722 0%, #FFD54F 100%);
+  }
+
+  .animate-delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .animate-delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .animate-delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .animate-delay-400 {
+    animation-delay: 400ms;
+  }
+
+  .animate-delay-500 {
+    animation-delay: 500ms;
+  }
+}
+
+/* ── 公众号文章正文排版 ── */
+.article-content {
+  font-size: 1.0625rem;
+  line-height: 1.85;
+  color: #3a3a3a;
+  font-family: 'Inter', 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif;
+  word-break: break-word;
+}
+
+/* 首个 h1 隐藏（标题已由页面头部展示） */
+.article-content>h1:first-child,
+.article-content>h1:first-of-type {
+  display: none;
+}
+
+.article-content h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 2.5rem 0 1rem;
+  line-height: 1.35;
+  font-family: 'Noto Serif SC', 'Source Han Serif CN', Georgia, serif;
+}
+
+.article-content h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 2.2rem 0 0.8rem;
+  line-height: 1.4;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #f0eae3;
+  font-family: 'Noto Serif SC', 'Source Han Serif CN', Georgia, serif;
+}
+
+.article-content h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 1.8rem 0 0.6rem;
+  line-height: 1.45;
+  font-family: 'Noto Serif SC', 'Source Han Serif CN', Georgia, serif;
+}
+
+.article-content p {
+  margin: 0 0 1.2em;
+}
+
+.article-content strong {
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+.article-content em {
+  font-style: italic;
+  color: #555;
+}
+
+.article-content a {
+  color: #E8502A;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.2s;
+}
+
+.article-content a:hover {
+  color: #c73f1f;
+}
+
+.article-content blockquote {
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+  border-left: 4px solid #E8502A;
+  background: #fdf8f5;
+  border-radius: 0 8px 8px 0;
+  color: #555;
+  font-style: italic;
+}
+
+.article-content blockquote p {
+  margin: 0.5em 0;
+}
+
+.article-content blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+.article-content img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 1.5rem auto;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.article-content ul,
+.article-content ol {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.article-content ul {
+  list-style-type: disc;
+}
+
+.article-content ol {
+  list-style-type: decimal;
+}
+
+.article-content li {
+  margin: 0.4em 0;
+  line-height: 1.7;
+}
+
+.article-content hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #d8cfc4, transparent);
+  margin: 2.5rem 0;
+}
+
+.article-content code {
+  background: #f5f0eb;
+  padding: 0.15em 0.45em;
+  border-radius: 4px;
+  font-size: 0.9em;
+  color: #E8502A;
+  font-family: 'JetBrains Mono', Menlo, monospace;
+}
+
+.article-content pre {
+  background: #2d2d2d;
+  color: #f0f0f0;
+  padding: 1.25rem;
+  border-radius: 10px;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.article-content pre code {
+  background: none;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+}
+
+.article-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+}
+
+.article-content th,
+.article-content td {
+  border: 1px solid #e8e0d8;
+  padding: 0.6rem 0.8rem;
+  text-align: left;
+}
+
+.article-content th {
+  background: #f5f0eb;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.article-content tr:nth-child(even) {
+  background: #faf8f5;
+}

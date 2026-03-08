@@ -1,0 +1,81 @@
+// This is your Prisma schema file
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+// 作品（视频/文章）
+model Work {
+  id          Int        @id @default(autoincrement())
+  title       String
+  type        String     // "video" | "article"
+  bvid        String?    // B站视频ID
+  excerpt     String?
+  content     String?    // 文章内容（Markdown）
+  coverImage  String?
+  category    String     @default("教育")
+  pinned      Boolean    @default(false) // 首页精选/代表作置顶
+  published   Boolean    @default(true)
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  materials   Material[]
+}
+
+// 配套物料
+model Material {
+  id            Int      @id @default(autoincrement())
+  workId        Int?
+  work          Work?    @relation(fields: [workId], references: [id], onDelete: SetNull)
+  title         String
+  description   String?
+  fileUrl       String   // R2 URL 或飞书链接等外部链接
+  fileType      String   // "pdf" | "excel" | "link" | "image" | "other"
+  isPublic      Boolean  @default(true)
+  accessCode    String?  // 非公开时的访问码（加密）
+  downloadCount Int      @default(0)
+  createdAt     DateTime @default(now())
+}
+
+// 服务/课程
+model Service {
+  id          Int      @id @default(autoincrement())
+  title       String
+  type        String   // "course" | "consult" | "coaching" | "camp"
+  description String
+  features    String   @default("[]") // JSON字符串，功能列表
+  price       String?
+  coverImage  String?
+  qrCodeUrl   String?  // 微信二维码
+  caseStudies String   @default("[]") // JSON字符串，学员案例
+  order       Int      @default(0)
+  published   Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// 邮件订阅
+model Subscriber {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  source    String   @default("website") // 订阅来源
+  createdAt DateTime @default(now())
+}
+
+// 预约记录
+model Appointment {
+  id        Int      @id @default(autoincrement())
+  name      String
+  phone     String?
+  wechat    String?
+  grade     String?  // 孩子年级
+  need      String   // 需求描述
+  serviceId Int?
+  status    String   @default("pending") // pending | contacted | done
+  createdAt DateTime @default(now())
+}
