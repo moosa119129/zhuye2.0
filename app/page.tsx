@@ -137,7 +137,7 @@ export default function HomePage() {
                                 <div className="relative w-full h-full border-[3px] border-charcoal bg-white rounded-none p-2 shadow-pop-lg overflow-hidden group-hover:-translate-y-2 group-hover:-translate-x-2 transition-transform duration-300">
                                     <div className="relative w-full h-full border-[3px] border-charcoal rounded-none overflow-hidden bg-white">
                                         <Image
-                                            src="/头像2.png"
+                                            src="/avatar-v2.png"
                                             alt="面面的爸爸 波普风头像"
                                             fill
                                             className="object-cover"
@@ -395,7 +395,7 @@ export default function HomePage() {
                                     <div className="aspect-[3/4] overflow-hidden bg-orange-50 relative border-[3px] border-charcoal">
                                         {/* 过滤掉温和光线，保持本色 */}
                                         <img
-                                            src="/main.png"
+                                            src="/profile-main.png"
                                             alt="在现场分享的面面的爸爸"
                                             className="w-full h-full object-cover object-top grayscale-[20%] contrast-125"
                                         />
