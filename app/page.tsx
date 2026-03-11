@@ -438,7 +438,7 @@ export default function HomePage() {
                 <div className="container max-w-6xl mx-auto px-6">
                     <div className="flex flex-col md:flex-row items-center gap-16 md:gap-24">
 
-                        {/* 左侧文案：为什么出发 */}
+                        {/* 左侧文案：三个方向 */}
                         <motion.div
                             variants={fadeUp}
                             initial="hidden"
@@ -449,29 +449,61 @@ export default function HomePage() {
                             <div>
                                 <span className="inline-block px-3 py-1 mb-4 border-[3px] border-charcoal shadow-pop-sm bg-pop-gradient text-charcoal text-xs font-bold tracking-widest uppercase -rotate-2">关于我</span>
                             </div>
-                            <h2 className="section-title mb-6">做正确的事，<br />哪怕是一条“慢路”</h2>
-                            <div className="space-y-4 text-charcoal-muted leading-relaxed text-lg mb-8">
-                                <p>
-                                    我曾在这个行业里看到太多焦虑的父母和被压得喘不过气的孩子。教育本该是点燃火焰，而不是填满罐子。
-                                </p>
-                                <p>
-                                    我想做的，不仅是帮你了解升学政策，更是结合AI技术，用更科学、更轻松的方式，帮家庭找到最适合孩子的那条路。
-                                </p>
+                            <h2 className="section-title mb-6">用专业和热情，<br />走一条有意义的路</h2>
+                            <p className="text-charcoal-muted leading-relaxed text-lg mb-8">
+                                每个家庭都值得更清晰的方向、更高效的工具、更专业的表达。这三件事，就是我每天在做的。
+                            </p>
+
+                            {/* 三方向卡片 */}
+                            <div className="space-y-4 mb-8">
+                                {[
+                                    {
+                                        icon: <BookOpen className="w-5 h-5" />,
+                                        color: 'bg-pop-orange',
+                                        title: '教育与升学',
+                                        desc: '从小升初到高升大，深度解读政策，帮你理清每一步的选择逻辑'
+                                    },
+                                    {
+                                        icon: <Brain className="w-5 h-5" />,
+                                        color: 'bg-pop-cyan',
+                                        title: 'AI 赋能',
+                                        desc: '不止于教育场景，用AI工具提升效率，让每个人都能做"超级个体"'
+                                    },
+                                    {
+                                        icon: <Film className="w-5 h-5" />,
+                                        color: 'bg-pop-blue',
+                                        title: '视频服务',
+                                        desc: '课件录制、访谈拍摄、活动跟拍——用镜头帮你把好内容传递出去'
+                                    },
+                                ].map((item, i) => (
+                                    <div key={i} className="flex items-start gap-4 group">
+                                        <div className={`flex-shrink-0 w-10 h-10 ${item.color} border-[3px] border-charcoal flex items-center justify-center shadow-pop-xs group-hover:shadow-pop-sm transition-shadow`}>
+                                            {item.icon}
+                                        </div>
+                                        <div>
+                                            <h4 className="font-black text-base text-charcoal">{item.title}</h4>
+                                            <p className="text-sm text-charcoal-muted font-medium mt-0.5 leading-relaxed">{item.desc}</p>
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
 
-                            <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center p-6 bg-white border-[3px] border-charcoal shadow-pop-sm relative">
-                                <div className="absolute top-0 right-0 w-24 h-24 bg-halftone opacity-10 pointer-events-none"></div>
-                                <div className="w-12 h-12 rounded-full border-[3px] border-charcoal bg-pop-yellow flex flex-shrink-0 items-center justify-center relative z-10 transition-transform hover:scale-110">
-                                    <Play className="w-5 h-5 text-charcoal ml-1" />
+                            {/* 微纪录片 CTA */}
+                            <Link href="/film" className="group block">
+                                <div className="relative border-[3px] border-charcoal bg-charcoal p-5 shadow-pop-md hover:shadow-pop-lg transition-all group-hover:-translate-y-1 group-hover:translate-x-1">
+                                    <div className="absolute top-0 right-0 w-32 h-full bg-halftone opacity-10 pointer-events-none"></div>
+                                    <div className="flex items-center gap-4 relative z-10">
+                                        <div className="flex-shrink-0 w-12 h-12 bg-pop-yellow border-[3px] border-white/30 flex items-center justify-center group-hover:rotate-12 transition-transform">
+                                            <Play className="w-5 h-5 text-charcoal fill-current ml-0.5" />
+                                        </div>
+                                        <div className="flex-1">
+                                            <p className="font-black text-white text-base">认识一个真实的我</p>
+                                            <p className="text-white/50 text-sm font-bold mt-0.5">10分钟个人微纪录片 · 筹备中</p>
+                                        </div>
+                                        <ArrowRight className="w-5 h-5 text-white/40 group-hover:text-white group-hover:translate-x-1 transition-all flex-shrink-0" />
+                                    </div>
                                 </div>
-                                <div className="relative z-10">
-                                    <p className="font-bold text-charcoal mb-1">认识一个真实的我</p>
-                                    <p className="text-sm font-medium text-charcoal-muted mb-3">10分钟的个人微纪录片，现正筹备中</p>
-                                    <Link href="/film" className="text-base font-bold bg-pop-cyan/20 px-4 py-2 border border-charcoal hover:bg-pop-cyan transition-colors inline-flex items-center">
-                                        提前预约观看 <ArrowRight className="w-4 h-4 ml-1" />
-                                    </Link>
-                                </div>
-                            </div>
+                            </Link>
                         </motion.div>
 
                         {/* 右侧照片：拍立得/杂志画框感 */}
