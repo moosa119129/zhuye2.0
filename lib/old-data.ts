@@ -92,7 +92,7 @@ export const PODCASTS: Podcast[] = [
 export const VIDEOS: Video[] = [
     // 置顶视频
     { id: 1, title: "中考改革，火力更集中，拿掉小四门，减负对哪类孩子最不利？何时推广全国？", bvid: "BV1mm4y1u7oq", type: "long", category: "中考政策", coverImage: "https://i1.hdslb.com/bfs/archive/77306d553a64088b7725b1657fa4bd5f0230251d.jpg" },
-    { id: 2, title: "一首新写的旧歌，它早该写了，轻易不敢翻唱的一首……cover:李宗盛", bvid: "BV1SvZmYqE7B", type: "long", category: "其他", coverImage: "https://i1.hdslb.com/bfs/archive/96e92d25a6d632aa49b56d68172c81c12809ed28.jpg" },
+    { id: 2, title: "【毕业旅行】超完整1万公里新疆伊犁自驾游线路，22天不堵车", bvid: "BV1j9H5eSEkt", type: "long", category: "其他", coverImage: "/covers/videos/BV1j9H5eSEkt.jpg" },
     { id: 3, title: "名校竟然断档？最详细的成都中考招生录取数据分析，来看黑马和冷门", bvid: "BV17g4y1w7Z1", type: "long", category: "中考政策", coverImage: "https://i1.hdslb.com/bfs/archive/b046dd5f822896124e1953d6f291af6361b6dac1.jpg" },
     // 其他视频
     { id: 4, title: "10天3600公里，酷暑下的晋豫环线亲子自驾游，详细路书已出", bvid: "BV1EitvzXERP", type: "long", category: "亲子旅行", coverImage: "https://i1.hdslb.com/bfs/archive/6e8fe5b328696b94e4ec8ad6d63f570843c87e8c.jpg" },
