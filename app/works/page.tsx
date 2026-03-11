@@ -41,22 +41,47 @@ export default function WorksPage() {
                 </div>
             </section>
 
-            {/* ── 代表作置顶 ── */}
-            {pinned.length > 0 && (
-                <section className="py-16 bg-orange-50/40">
-                    <div className="container max-w-5xl mx-auto px-6">
-                        <div className="mb-8">
-                            <span className="inline-block px-3 py-1 mb-1 border-[3px] border-charcoal shadow-pop-sm bg-pop-gradient text-charcoal text-xs font-bold tracking-widest uppercase -rotate-1">置顶精选</span>
-                            <h2 className="text-xl font-semibold text-charcoal">代表作</h2>
-                        </div>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            {pinned.map((work: WorkItem) => (
-                                <VideoCard key={work.id} work={work} featured />
-                            ))}
+            {/* ── 置顶 Banner：新写的旧歌 ── */}
+            <section className="border-b-[3px] border-charcoal bg-charcoal relative overflow-hidden">
+                <a href="https://www.bilibili.com/video/BV1SvZmYqE7B/" target="_blank" rel="noopener noreferrer" className="group block">
+                    <div className="container max-w-6xl mx-auto px-6 py-12 md:py-16">
+                        <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+                            {/* 封面 */}
+                            <div className="md:w-1/2 flex-shrink-0">
+                                <div className="relative border-[3px] border-white/20 shadow-pop-md overflow-hidden group-hover:shadow-pop-lg transition-all">
+                                    <img
+                                        src="/covers/videos/BV1SvZmYqE7B.jpg"
+                                        alt="新写的旧歌 - 翻唱李宗盛"
+                                        className="w-full h-auto block transition-transform duration-500 group-hover:scale-105"
+                                    />
+                                    <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-colors">
+                                        <div className="w-16 h-16 bg-white/90 border-[3px] border-charcoal flex items-center justify-center shadow-pop-sm group-hover:scale-110 transition-transform">
+                                            <Play className="w-7 h-7 text-charcoal fill-current ml-1" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {/* 文案 */}
+                            <div className="md:w-1/2 text-center md:text-left">
+                                <span className="inline-block px-3 py-1 mb-4 border-[3px] border-charcoal shadow-pop-sm bg-pop-gradient text-charcoal text-xs font-bold tracking-widest uppercase rotate-1">置顶推荐</span>
+                                <h2 className="text-3xl md:text-4xl font-black text-white leading-tight mb-4">
+                                    一首新写的旧歌
+                                </h2>
+                                <p className="text-white/60 text-lg font-bold leading-relaxed mb-2">
+                                    它早该写了，轻易不敢翻唱的一首……
+                                </p>
+                                <p className="text-white/40 text-sm font-medium">
+                                    cover: 李宗盛
+                                </p>
+                                <div className="mt-6 inline-flex items-center gap-2 text-white/50 group-hover:text-white transition-colors font-bold">
+                                    <span>去 B 站听</span>
+                                    <ExternalLink className="w-4 h-4" />
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </section>
-            )}
+                </a>
+            </section>
 
             {/* ── 视频板块 ── */}
             {videos.length > 0 && (
