@@ -77,7 +77,7 @@ export default function AboutPage() {
                             <h1 className="section-title text-4xl md:text-5xl">我是谁</h1>
                             <div className="space-y-4 text-charcoal-light leading-relaxed">
                                 <p>
-                                    大家叫我"面面的爸爸"——"面面"是我孩子的小名。因为做了爸爸，我开始认真研究教育这件事，从升学政策到学习方法，一路摸索出了自己的一套体系。
+                                    大家叫我"面面的爸爸"。做了父亲之后，我开始认真研究教育这件事——从升学政策到学习方法，一路摸索出了自己的一套体系。
                                 </p>
                                 <p>
                                     后来我发现，<strong className="text-charcoal">好的工具能让复杂的事情变简单</strong>。于是从教育延伸到AI，从个人创作延伸到帮机构做视频——三条看似不同的路，底层逻辑其实都是同一件事：<strong className="text-charcoal">找到更聪明的方法，把事情做好</strong>。
