@@ -210,118 +210,135 @@ export default function HomePage() {
                         <h2 className="section-title text-5xl md:text-6xl">看看我的内容吧</h2>
                     </motion.div>
 
-                    {/* Bento Grid: 12-column layout, Fixed row heights for tight alignment */}
-                    <div className="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[240px]">
+                    {/* ===== Apple-style Interlocking Grid =====
+                         Layout (12-col):
+                         Row 1: [Article1  7cols] [Video1   5cols]
+                         Row 2: [Podcast1 3cols] [Article2 4cols] [Video2 5cols]
+                         Row 3: [Podcast1 cont.] [Podcast2 4cols] [Video2 text ]
+                         外轮廓齐整，内部大小错落，封面完整显示不裁剪 */}
+                    <div className="flex flex-col gap-6">
 
-                        {/* 1. 大篇文章 (8 columns, 2 rows) - Row 1-2, Col 1-8 */}
-                        <motion.div custom={0.1} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="md:col-span-8 md:row-span-2 group">
-                            <Link href="/articles/cheng-du-jiao-yu-bing-huo-liang-chong-tian-chu-sheng-l-die-po-6-yu-1-6-wan-zhong" className="block h-full">
-                                <div className="h-full bg-white border-[3px] border-charcoal shadow-pop-md hover:shadow-pop-lg transition-all flex flex-col group-hover:-translate-y-1 group-hover:translate-x-1">
-                                    <div className="flex-[3] bg-pop-orange relative overflow-hidden border-b-[3px] border-charcoal">
-                                        <div className="absolute inset-0 bg-halftone opacity-20"></div>
-                                        <img
-                                            src="/articles/images/cheng-du-jiao-yu-bing-huo-liang-chong-tian-chu-sheng-l-die-po-6-yu-1-6-wan-zhong-cover.jpg"
-                                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                                            alt="成都教育文章封面"
-                                        />
-                                        <span className="absolute top-6 left-6 px-4 py-1.5 bg-white border-[3px] border-charcoal font-black text-sm shadow-pop-xs z-20">
-                                            核心深度
-                                        </span>
-                                    </div>
-                                    <div className="p-8 md:p-10 flex-1 bg-white flex flex-col justify-center">
-                                        <h3 className="text-2xl md:text-3xl font-black mb-4 leading-tight group-hover:text-pop-blue transition-colors tracking-tight">
-                                            成都教育冰火两重天：出生率跌破6‰与16万中考大军
-                                        </h3>
-                                        <p className="text-charcoal font-bold text-lg line-clamp-2 opacity-80">
-                                            2025年全国出生人口数据刷新认知，成都中学段却迎来洪峰。择校逻辑需要彻底的“空杯心态”。
-                                        </p>
-                                    </div>
-                                </div>
-                            </Link>
-                        </motion.div>
+                        {/* === 上半区：大文章 + 视频1 === */}
+                        <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
 
-                        {/* 2. 视频 1 (4 columns, 1 row) - Row 1, Col 9-12 */}
-                        <motion.div custom={0.2} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="md:col-span-4 md:row-span-1">
-                            <Link href="https://www.bilibili.com/video/BV1LzPjzvE73/" target="_blank" className="block h-full">
-                                <div className="h-full bg-white border-[3px] border-charcoal shadow-pop-sm hover:shadow-pop-md transition-all flex flex-col group overflow-hidden">
-                                    <div className="h-2/3 border-b-[3px] border-charcoal bg-pop-yellow relative overflow-hidden">
-                                        <img src="/covers/videos/BV1LzPjzvE73.jpg" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="2026政策解读视频封面" />
-                                        <div className="absolute inset-0 flex items-center justify-center bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity">
-                                            <Play className="w-10 h-10 text-white fill-current drop-shadow-lg" />
+                            {/* 1. 大篇文章 — 左侧 7 列 */}
+                            <motion.div custom={0.1} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="md:col-span-7 group">
+                                <Link href="/works/cheng-du-jiao-yu-bing-huo-liang-chong-tian-chu-sheng-l-die-po-6-yu-1-6-wan-zhong" className="block h-full">
+                                    <div className="h-full bg-white border-[3px] border-charcoal shadow-pop-md hover:shadow-pop-lg transition-all flex flex-col group-hover:-translate-y-1 group-hover:translate-x-1">
+                                        <div className="relative border-b-[3px] border-charcoal bg-pop-orange overflow-hidden">
+                                            <div className="absolute inset-0 bg-halftone opacity-20 z-10 pointer-events-none"></div>
+                                            <img
+                                                src="/articles/images/cheng-du-jiao-yu-bing-huo-liang-chong-tian-chu-sheng-l-die-po-6-yu-1-6-wan-zhong-cover.jpg"
+                                                className="w-full h-auto block group-hover:scale-105 transition-transform duration-500"
+                                                alt="成都教育文章封面"
+                                            />
+                                            <span className="absolute top-4 left-4 px-3 py-1 bg-white border-[3px] border-charcoal font-black text-sm shadow-pop-xs z-20">
+                                                核心深度
+                                            </span>
+                                        </div>
+                                        <div className="p-6 md:p-8 bg-white flex flex-col justify-center">
+                                            <h3 className="text-xl md:text-2xl font-black mb-3 leading-tight group-hover:text-pop-blue transition-colors tracking-tight">
+                                                成都教育冰火两重天：出生率跌破6‰与16万中考大军
+                                            </h3>
+                                            <p className="text-charcoal font-bold text-base line-clamp-2 opacity-80">
+                                                2025年全国出生人口数据刷新认知，成都中学段却迎来洪峰。择校逻辑需要彻底的"空杯心态"。
+                                            </p>
                                         </div>
                                     </div>
-                                    <div className="flex-1 p-4 flex flex-col justify-center bg-white group-hover:bg-pop-yellow transition-colors">
-                                        <span className="text-[9px] font-black uppercase mb-1 tracking-widest text-charcoal/60 text-center">Video • 政策解读</span>
-                                        <h3 className="font-black text-[14px] leading-tight line-clamp-2 text-center">2026年成都中考政策解读：指标扩容与贯通培养</h3>
-                                    </div>
-                                </div>
-                            </Link>
-                        </motion.div>
+                                </Link>
+                            </motion.div>
 
-                        {/* 3. 视频 2 (4 columns, 1 row) - Row 2, Col 9-12 */}
-                        <motion.div custom={0.3} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="md:col-span-4 md:row-span-1">
-                            <Link href="https://www.bilibili.com/video/BV1kN41167mT/" target="_blank" className="block h-full">
-                                <div className="h-full bg-white border-[3px] border-charcoal shadow-pop-sm hover:shadow-pop-md transition-all flex flex-col group overflow-hidden">
-                                    <div className="h-2/3 border-b-[3px] border-charcoal bg-pop-blue relative overflow-hidden">
-                                        <img src="/covers/videos/BV1kN41167mT.jpg" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="中考家长会视频封面" />
-                                        <div className="absolute inset-0 flex items-center justify-center bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity">
-                                            <Play className="w-10 h-10 text-white fill-current drop-shadow-lg" />
+                            {/* 2. 视频 1 — 右侧 5 列 */}
+                            <motion.div custom={0.2} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="md:col-span-5 group">
+                                <Link href="https://www.bilibili.com/video/BV1LzPjzvE73/" target="_blank" className="block h-full">
+                                    <div className="h-full bg-white border-[3px] border-charcoal shadow-pop-sm hover:shadow-pop-md transition-all flex flex-col overflow-hidden group-hover:-translate-y-1 group-hover:translate-x-1">
+                                        <div className="relative border-b-[3px] border-charcoal bg-pop-yellow overflow-hidden">
+                                            <img src="/covers/videos/BV1LzPjzvE73.jpg" className="w-full h-auto block transition-transform duration-500 group-hover:scale-105" alt="2026政策解读视频封面" />
+                                            <div className="absolute inset-0 flex items-center justify-center bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity">
+                                                <Play className="w-12 h-12 text-white fill-current drop-shadow-lg" />
+                                            </div>
+                                        </div>
+                                        <div className="p-5 flex flex-col justify-center bg-white group-hover:bg-pop-yellow transition-colors flex-1">
+                                            <span className="text-[9px] font-black uppercase mb-1.5 tracking-widest text-charcoal/60">Video • 政策解读</span>
+                                            <h3 className="font-black text-[15px] leading-tight line-clamp-2">2026年成都中考政策解读：指标扩容与贯通培养</h3>
                                         </div>
                                     </div>
-                                    <div className="flex-1 p-4 flex flex-col justify-center bg-white group-hover:bg-pop-blue transition-colors">
-                                        <span className="text-[9px] font-black uppercase mb-1 tracking-widest text-charcoal/60 text-center">Video • 经验分享</span>
-                                        <h3 className="font-black text-[14px] leading-tight line-clamp-2 text-center group-hover:text-white">中考必看：家长会读懂这4个细节才叫牛</h3>
-                                    </div>
-                                </div>
-                            </Link>
-                        </motion.div>
+                                </Link>
+                            </motion.div>
+                        </div>
 
-                        {/* 4. 播客 1 (4 columns, 1 row) - Row 3, Col 1-4 (Horizontal layout) */}
-                        <motion.div custom={0.4} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="md:col-span-4 md:row-span-1">
-                            <Link href="https://www.xiaoyuzhoufm.com/episode/67416b058d1233fb0d5dd71b" target="_blank" className="block h-full">
-                                <div className="h-full bg-white border-[3px] border-charcoal shadow-pop-sm hover:shadow-pop-md transition-all flex flex-row group overflow-hidden">
-                                    <div className="w-2/5 border-r-[3px] border-charcoal bg-pop-cyan relative flex items-center justify-center overflow-hidden flex-shrink-0">
-                                        <img src="/podcast-cover.png" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="播客封面" />
-                                        <Mic className="absolute bottom-2 right-2 w-4 h-4 text-white drop-shadow-md z-10" />
-                                    </div>
-                                    <div className="flex-1 p-4 flex flex-col justify-center bg-white group-hover:bg-pop-cyan transition-colors">
-                                        <span className="text-[9px] font-black uppercase mb-1 tracking-widest text-charcoal/60">Podcast • 亲子教育</span>
-                                        <h3 className="font-black text-[13px] leading-tight line-clamp-3">谁在数字时代受伤害？手机与亲子关系新解</h3>
-                                    </div>
-                                </div>
-                            </Link>
-                        </motion.div>
+                        {/* === 下半区：视频2 + 播客2/文章2 + 播客1 === */}
+                        <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
 
-                        {/* 5. 文章 2 (4 columns, 1 row) - Row 3, Col 5-8 */}
-                        <motion.div custom={0.5} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="md:col-span-4 md:row-span-1">
-                            <Link href="/articles/ze-xiao-zhe-bi-zhang-hen-duo-jia-zhang-dou-suan-cuo-le-xiao-sheng-chu-he-chu-she" className="block h-full">
-                                <div className="h-full bg-white border-[3px] border-charcoal shadow-pop-sm hover:shadow-pop-md transition-all flex flex-col group overflow-hidden">
-                                    <div className="h-2/3 border-b-[3px] border-charcoal bg-pop-yellow relative overflow-hidden">
-                                        <img src="/articles/images/ze-xiao-zhe-bi-zhang-hen-duo-jia-zhang-dou-suan-cuo-le-xiao-sheng-chu-he-chu-she-cover.jpg" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="文章封面" />
+                            {/* 3. 视频 2 — 左侧 4 列 */}
+                            <motion.div custom={0.3} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="md:col-span-4 group">
+                                <Link href="https://www.bilibili.com/video/BV1kN41167mT/" target="_blank" className="block h-full">
+                                    <div className="h-full bg-white border-[3px] border-charcoal shadow-pop-sm hover:shadow-pop-md transition-all flex flex-col overflow-hidden group-hover:-translate-y-1 group-hover:translate-x-1">
+                                        <div className="relative border-b-[3px] border-charcoal bg-pop-blue overflow-hidden">
+                                            <img src="/covers/videos/BV1kN41167mT.jpg" className="w-full h-auto block transition-transform duration-500 group-hover:scale-105" alt="中考家长会视频封面" />
+                                            <div className="absolute inset-0 flex items-center justify-center bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity">
+                                                <Play className="w-10 h-10 text-white fill-current drop-shadow-lg" />
+                                            </div>
+                                        </div>
+                                        <div className="p-5 flex flex-col justify-center bg-white group-hover:bg-pop-blue transition-colors flex-1">
+                                            <span className="text-[9px] font-black uppercase mb-1.5 tracking-widest text-charcoal/60">Video • 经验分享</span>
+                                            <h3 className="font-black text-[14px] leading-tight line-clamp-2 group-hover:text-white">中考必看：家长会读懂这4个细节才叫牛</h3>
+                                        </div>
                                     </div>
-                                    <div className="flex-1 p-4 flex flex-col justify-center bg-white group-hover:bg-pop-yellow transition-colors">
-                                        <span className="text-[9px] font-black uppercase mb-1 tracking-widest text-charcoal/60 text-center">Article • 择校决策</span>
-                                        <h3 className="font-black text-[14px] leading-tight line-clamp-2 text-center">择校决策深度指南：教你如何算清升学这笔账</h3>
-                                    </div>
-                                </div>
-                            </Link>
-                        </motion.div>
+                                </Link>
+                            </motion.div>
 
-                        {/* 6. 播客 2 (4 columns, 1 row) - Row 3, Col 9-12 (Horizontal layout) */}
-                        <motion.div custom={0.6} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="md:col-span-4 md:row-span-1">
-                            <Link href="https://www.xiaoyuzhoufm.com/episode/672c6d2182eb19451ddb0572" target="_blank" className="block h-full">
-                                <div className="h-full bg-white border-[3px] border-charcoal shadow-pop-sm hover:shadow-pop-md transition-all flex flex-row group overflow-hidden">
-                                    <div className="w-2/5 border-r-[3px] border-charcoal bg-pop-orange relative flex items-center justify-center overflow-hidden flex-shrink-0">
-                                        <img src="/podcast-cover.png" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="播客封面" />
-                                        <Mic className="absolute bottom-2 right-2 w-4 h-4 text-white drop-shadow-md z-10" />
+                            {/* 中间区域：播客2 + 文章2 上下叠放 */}
+                            <div className="md:col-span-5 flex flex-col gap-6">
+
+                                {/* 4. 播客 2 — 横向布局 */}
+                                <motion.div custom={0.4} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="group">
+                                    <Link href="https://www.xiaoyuzhoufm.com/episode/672c6d2182eb19451ddb0572" target="_blank" className="block">
+                                        <div className="bg-white border-[3px] border-charcoal shadow-pop-sm hover:shadow-pop-md transition-all flex flex-row overflow-hidden group-hover:-translate-y-1 group-hover:translate-x-1">
+                                            <div className="w-2/5 border-r-[3px] border-charcoal bg-pop-orange relative overflow-hidden flex-shrink-0">
+                                                <img src="/podcast-cover.png" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="播客封面" />
+                                                <Mic className="absolute bottom-2 right-2 w-4 h-4 text-white drop-shadow-md z-10" />
+                                            </div>
+                                            <div className="flex-1 p-4 flex flex-col justify-center bg-white group-hover:bg-pop-orange transition-colors">
+                                                <span className="text-[9px] font-black uppercase mb-1.5 tracking-widest text-charcoal/60">Podcast • 成长真相</span>
+                                                <h3 className="font-black text-[13px] leading-tight line-clamp-3 group-hover:text-white transition-colors">高质量陪伴，是给孩子成长过程中最坚实的基础</h3>
+                                            </div>
+                                        </div>
+                                    </Link>
+                                </motion.div>
+
+                                {/* 5. 文章 2 — 宽封面 */}
+                                <motion.div custom={0.5} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="group flex-1">
+                                    <Link href="/works/ze-xiao-zhe-bi-zhang-hen-duo-jia-zhang-dou-suan-cuo-le-xiao-sheng-chu-he-chu-she" className="block h-full">
+                                        <div className="h-full bg-white border-[3px] border-charcoal shadow-pop-sm hover:shadow-pop-md transition-all flex flex-col overflow-hidden group-hover:-translate-y-1 group-hover:translate-x-1">
+                                            <div className="relative border-b-[3px] border-charcoal bg-pop-yellow overflow-hidden">
+                                                <img src="/articles/images/ze-xiao-zhe-bi-zhang-hen-duo-jia-zhang-dou-suan-cuo-le-xiao-sheng-chu-he-chu-she-cover.jpg" className="w-full h-auto block group-hover:scale-105 transition-transform duration-500" alt="择校文章封面" />
+                                            </div>
+                                            <div className="p-4 flex flex-col justify-center bg-white group-hover:bg-pop-yellow transition-colors flex-1">
+                                                <span className="text-[9px] font-black uppercase mb-1.5 tracking-widest text-charcoal/60">Article • 择校决策</span>
+                                                <h3 className="font-black text-[14px] leading-tight line-clamp-2">择校决策深度指南：教你如何算清升学这笔账</h3>
+                                            </div>
+                                        </div>
+                                    </Link>
+                                </motion.div>
+                            </div>
+
+                            {/* 6. 播客 1 — 右侧 3 列，正方形封面纵向排列 */}
+                            <motion.div custom={0.6} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="md:col-span-3 group">
+                                <Link href="https://www.xiaoyuzhoufm.com/episode/67416b058d1233fb0d5dd71b" target="_blank" className="block h-full">
+                                    <div className="h-full bg-white border-[3px] border-charcoal shadow-pop-sm hover:shadow-pop-md transition-all flex flex-col overflow-hidden group-hover:-translate-y-1 group-hover:translate-x-1">
+                                        <div className="relative border-b-[3px] border-charcoal bg-pop-cyan overflow-hidden">
+                                            <img src="/podcast-cover.png" className="w-full h-auto block group-hover:scale-105 transition-transform duration-500" alt="播客封面" />
+                                            <Mic className="absolute bottom-3 right-3 w-5 h-5 text-white drop-shadow-md z-10" />
+                                        </div>
+                                        <div className="p-4 flex flex-col justify-center bg-white group-hover:bg-pop-cyan transition-colors flex-1">
+                                            <span className="text-[9px] font-black uppercase mb-1.5 tracking-widest text-charcoal/60">Podcast • 亲子教育</span>
+                                            <h3 className="font-black text-[13px] leading-tight line-clamp-3">谁在数字时代受伤害？手机与亲子关系新解</h3>
+                                        </div>
                                     </div>
-                                    <div className="flex-1 p-4 flex flex-col justify-center bg-white group-hover:bg-pop-orange transition-colors">
-                                        <span className="text-[9px] font-black uppercase mb-1 tracking-widest text-charcoal/60">Podcast • 成长真相</span>
-                                        <h3 className="font-black text-[13px] leading-tight line-clamp-3 group-hover:text-white transition-colors">高质量陪伴，是给孩子成长过程中最坚实的基础</h3>
-                                    </div>
-                                </div>
-                            </Link>
-                        </motion.div>
+                                </Link>
+                            </motion.div>
+                        </div>
                     </div>
 
 
