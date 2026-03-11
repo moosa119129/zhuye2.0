@@ -47,10 +47,12 @@ export default function LaboratoryPage() {
                     <motion.div
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
-                        className="inline-flex items-center gap-2 bg-charcoal text-white px-4 py-2 border-[3px] border-charcoal shadow-pop-sm mb-6"
+                        className="inline-block px-4 py-1 mb-6 border-[3px] border-charcoal shadow-pop-sm bg-pop-gradient text-charcoal text-xs font-bold tracking-widest uppercase -rotate-2"
                     >
-                        <Beaker size={20} className="text-pop-yellow" />
-                        <span className="font-bold tracking-widest text-sm uppercase">Laboratory</span>
+                        <span className="flex items-center gap-2">
+                            <Beaker size={16} />
+                            Laboratory
+                        </span>
                     </motion.div>
 
                     <motion.h1

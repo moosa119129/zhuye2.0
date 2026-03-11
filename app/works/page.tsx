@@ -31,7 +31,7 @@ export default function WorksPage() {
             <section className="py-20 border-b border-warm-gray">
                 <div className="container max-w-5xl mx-auto px-6">
                     <div className="max-w-2xl">
-                        <span className="section-label mb-3 block">作品集</span>
+                        <span className="inline-block px-3 py-1 mb-3 border-[3px] border-charcoal shadow-pop-sm bg-pop-gradient text-charcoal text-xs font-bold tracking-widest uppercase rotate-2">作品集</span>
                         <h1 className="section-title text-4xl md:text-5xl mb-4">我做的东西</h1>
                         <p className="section-subtitle">
                             视频、文章，以及每期内容附带的配套物料。<br />
@@ -46,7 +46,7 @@ export default function WorksPage() {
                 <section className="py-16 bg-orange-50/40">
                     <div className="container max-w-5xl mx-auto px-6">
                         <div className="mb-8">
-                            <span className="section-label mb-1 block">置顶精选</span>
+                            <span className="inline-block px-3 py-1 mb-1 border-[3px] border-charcoal shadow-pop-sm bg-pop-gradient text-charcoal text-xs font-bold tracking-widest uppercase -rotate-1">置顶精选</span>
                             <h2 className="text-xl font-semibold text-charcoal">代表作</h2>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

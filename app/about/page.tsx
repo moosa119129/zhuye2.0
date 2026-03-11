@@ -61,7 +61,7 @@ export default function AboutPage() {
                             <div className="relative aspect-[4/5] border-[3px] border-charcoal bg-white p-2 shadow-pop-md group-hover:-translate-y-1 group-hover:-translate-x-1 transition-transform duration-300">
                                 <div className="relative w-full h-full border-[3px] border-charcoal overflow-hidden">
                                     <Image
-                                        src="/images/avatar-cartoon.png"
+                                        src="/images/avatar-cartoon-v2.png"
                                         alt="面面的爸爸 - 波普风格头像"
                                         fill
                                         className="object-cover"
