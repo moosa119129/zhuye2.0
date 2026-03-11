@@ -451,7 +451,7 @@ export default function HomePage() {
                             </div>
                             <h2 className="section-title mb-6">用专业和热情，<br />走一条有意义的路</h2>
                             <p className="text-charcoal-muted leading-relaxed text-lg mb-8">
-                                每个家庭都值得更清晰的方向、更高效的工具、更专业的表达。这三件事，就是我每天在做的。
+                                无论你是为孩子升学做规划的家长、想用AI提升效率的职场人，还是需要专业视频的学校和机构——我都能帮上忙。
                             </p>
 
                             {/* 三方向卡片 */}
@@ -497,8 +497,8 @@ export default function HomePage() {
                                             <Play className="w-5 h-5 text-charcoal fill-current ml-0.5" />
                                         </div>
                                         <div className="flex-1">
-                                            <p className="font-black text-white text-base">认识一个真实的我</p>
-                                            <p className="text-white/50 text-sm font-bold mt-0.5">10分钟个人微纪录片 · 筹备中</p>
+                                            <p className="font-black text-white text-base">看看我能帮你做什么</p>
+                                            <p className="text-white/50 text-sm font-bold mt-0.5">3分钟了解我的能力和服务 · 筹备中</p>
                                         </div>
                                         <ArrowRight className="w-5 h-5 text-white/40 group-hover:text-white group-hover:translate-x-1 transition-all flex-shrink-0" />
                                     </div>
