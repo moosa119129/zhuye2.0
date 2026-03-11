@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, BookOpen, Brain, Users, ChevronRight, Play, Mic, Video, Film } from "lucide-react";
@@ -15,6 +16,35 @@ const fadeUp: Variants = {
         transition: { duration: 0.6, delay, ease: "easeOut" },
     }),
 };
+
+// ── B站视频点击播放组件 ─────────────────────────────────
+function BilibiliPlayer({ bvid, cover, alt, bgColor }: { bvid: string; cover: string; alt: string; bgColor: string }) {
+    const [playing, setPlaying] = useState(false);
+    return (
+        <div className={`relative border-b-[3px] border-charcoal ${bgColor} overflow-hidden`}>
+            <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+                {playing ? (
+                    <iframe
+                        src={`//player.bilibili.com/player.html?bvid=${bvid}&autoplay=1&high_quality=1`}
+                        className="absolute inset-0 w-full h-full"
+                        allowFullScreen
+                        sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"
+                        frameBorder="0"
+                    />
+                ) : (
+                    <button onClick={() => setPlaying(true)} className="absolute inset-0 w-full h-full cursor-pointer group/play bg-transparent border-none p-0">
+                        <img src={cover} className="w-full h-full object-cover transition-transform duration-500 group-hover/play:scale-105" alt={alt} />
+                        <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover/play:bg-black/30 transition-colors">
+                            <div className="w-16 h-16 bg-white/90 border-[3px] border-charcoal flex items-center justify-center shadow-pop-sm group-hover/play:scale-110 transition-transform">
+                                <Play className="w-7 h-7 text-charcoal fill-current ml-1" />
+                            </div>
+                        </div>
+                    </button>
+                )}
+            </div>
+        </div>
+    );
+}
 
 // ── 精选代表作（占位数据）────────────────────────────────
 const featuredWorks = [
@@ -248,20 +278,10 @@ export default function HomePage() {
                                 </Link>
                             </motion.div>
 
-                            {/* 2. 视频 1 — 右侧 5 列（B站嵌入） */}
+                            {/* 2. 视频 1 — 右侧 5 列（封面+点击播放） */}
                             <motion.div custom={0.2} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="md:col-span-5 group">
                                 <div className="h-full bg-white border-[3px] border-charcoal shadow-pop-sm hover:shadow-pop-md transition-all flex flex-col overflow-hidden">
-                                    <div className="relative border-b-[3px] border-charcoal bg-pop-yellow overflow-hidden">
-                                        <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
-                                            <iframe
-                                                src="//player.bilibili.com/player.html?bvid=BV1LzPjzvE73&autoplay=0&high_quality=1"
-                                                className="absolute inset-0 w-full h-full"
-                                                allowFullScreen
-                                                sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"
-                                                frameBorder="0"
-                                            />
-                                        </div>
-                                    </div>
+                                    <BilibiliPlayer bvid="BV1LzPjzvE73" cover="/covers/videos/BV1LzPjzvE73.jpg" alt="2026政策解读视频封面" bgColor="bg-pop-yellow" />
                                     <div className="p-5 flex flex-col justify-center bg-white flex-1">
                                         <span className="text-[9px] font-black uppercase mb-1.5 tracking-widest text-charcoal/60">Video • 政策解读</span>
                                         <h3 className="font-black text-[15px] leading-tight line-clamp-2">2026年成都中考政策解读：指标扩容与贯通培养</h3>
@@ -273,20 +293,10 @@ export default function HomePage() {
                         {/* === 下半区：视频2 + 播客2/文章2 + 播客1 === */}
                         <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
 
-                            {/* 3. 视频 2 — 左侧 4 列（B站嵌入） */}
+                            {/* 3. 视频 2 — 左侧 4 列（封面+点击播放） */}
                             <motion.div custom={0.3} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="md:col-span-4 group">
                                 <div className="h-full bg-white border-[3px] border-charcoal shadow-pop-sm hover:shadow-pop-md transition-all flex flex-col overflow-hidden">
-                                    <div className="relative border-b-[3px] border-charcoal bg-pop-blue overflow-hidden">
-                                        <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
-                                            <iframe
-                                                src="//player.bilibili.com/player.html?bvid=BV1kN41167mT&autoplay=0&high_quality=1"
-                                                className="absolute inset-0 w-full h-full"
-                                                allowFullScreen
-                                                sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"
-                                                frameBorder="0"
-                                            />
-                                        </div>
-                                    </div>
+                                    <BilibiliPlayer bvid="BV1kN41167mT" cover="/covers/videos/BV1kN41167mT.jpg" alt="中考家长会视频封面" bgColor="bg-pop-blue" />
                                     <div className="p-5 flex flex-col justify-center bg-white flex-1">
                                         <span className="text-[9px] font-black uppercase mb-1.5 tracking-widest text-charcoal/60">Video • 经验分享</span>
                                         <h3 className="font-black text-[14px] leading-tight line-clamp-2">中考必看：家长会读懂这4个细节才叫牛</h3>
@@ -366,7 +376,7 @@ export default function HomePage() {
                 <div className="container max-w-6xl mx-auto px-6 relative z-10">
 
                     <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mb-16">
-                        <span className="inline-block px-4 py-1.5 mb-6 border-[3px] border-white/30 shadow-pop-sm bg-pop-blue text-white text-xs font-bold tracking-widest uppercase rotate-1">
+                        <span className="inline-block px-4 py-1 mb-6 border-[3px] border-charcoal shadow-pop-sm bg-pop-gradient text-charcoal text-xs font-bold tracking-widest uppercase rotate-1">
                             专业服务
                         </span>
                         <h2 className="section-title text-5xl md:text-6xl text-white">我还能帮你拍片子</h2>
