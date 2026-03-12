@@ -27,7 +27,7 @@ const platforms = [
         href: "https://space.bilibili.com/284427802?spm_id_from=333.337.search-card.all.click",
         color: "hover:border-[#FB7299] hover:bg-pink-50/50",
         iconColor: "text-[#FB7299]",
-        qrImage: "/B站.jpg",
+        qrImage: "/bilibili-qr.jpg",
         icon: BilibiliIcon,
         active: true
     },
@@ -38,7 +38,7 @@ const platforms = [
         href: "https://www.douyin.com/user/self?from_tab_name=main",
         color: "hover:border-[#1A1A1A] hover:bg-charcoal/5",
         iconColor: "text-charcoal",
-        qrImage: "/抖音.jpg",
+        qrImage: "/douyin-qr.jpg",
         icon: ({ className }: { className?: string }) => (
             <svg className={className} viewBox="0 0 24 24" fill="currentColor">
                 <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.31 6.31 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34l-.04-8.6a8.18 8.18 0 0 0 4.78 1.52V5.01a4.85 4.85 0 0 1-1.97.68" />
@@ -53,7 +53,7 @@ const platforms = [
         href: "https://www.xiaohongshu.com/user/profile/60101ee700000000010003fc",
         color: "hover:border-[#FF2442] hover:bg-red-50/50",
         iconColor: "text-[#FF2442]",
-        qrImage: "/小红书.jpg",
+        qrImage: "/xhs-qr.jpg",
         icon: ({ className }: { className?: string }) => (
             <svg className={className} viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm-.54 5.4h1.08v1.8h2.52v1.08H12.6v.9h2.34v5.04H12.6v.9h2.88v1.08H12.6v1.8h-1.08v-1.8H8.64v-1.08h2.88v-.9H9.12v-5.04h2.34v-.9H9v-1.08h2.46V5.4zm-1.26 4.86v.9h1.26v-.9h-1.26zm0 1.8v.9h1.26v-.9h-1.26zm2.34-1.8v.9h1.26v-.9H12.6zm0 1.8v.9h1.26v-.9H12.6z" />
@@ -68,7 +68,7 @@ const platforms = [
         href: "https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=Mzg2OTgzMDY5Ng==#wechat_redirect",
         color: "hover:border-[#07C160] hover:bg-green-50/50",
         iconColor: "text-[#07C160]",
-        qrImage: "/公众号.jpg",
+        qrImage: "/official-account-qr.jpg",
         icon: ({ className }: { className?: string }) => (
             <svg className={className} viewBox="0 0 24 24" fill="currentColor">
                 <path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.295.295a.326.326 0 0 0 .167-.054l1.903-1.114a.864.864 0 0 1 .717-.098 10.16 10.16 0 0 0 2.837.403c-.072-.411-.108-.83-.108-1.257 0-3.746 3.508-6.787 7.855-6.787.12 0 .238.003.356.01C15.917 4.705 12.674 2.188 8.69 2.188zm-2.314 3.621a.982.982 0 1 1 0 1.965.982.982 0 0 1 0-1.965zm4.63 0a.982.982 0 1 1 0 1.965.982.982 0 0 1 0-1.965z M24 14.807c0-3.373-3.281-6.12-7.326-6.12-4.045 0-7.327 2.747-7.327 6.12 0 3.372 3.282 6.12 7.327 6.12.83 0 1.62-.12 2.36-.333a.704.704 0 0 1 .59.08l1.573.921a.27.27 0 0 0 .138.045.244.244 0 0 0 .244-.244c0-.06-.024-.117-.04-.176l-.322-1.224a.488.488 0 0 1 .176-.549C23.013 18.536 24 16.768 24 14.807zm-9.797-.737a.813.813 0 1 1 0-1.626.813.813 0 0 1 0 1.626zm4.93 0a.813.813 0 1 1 0-1.626.813.813 0 0 1 0 1.626z" />
@@ -83,7 +83,7 @@ const platforms = [
         href: "#",
         color: "hover:border-[#07C160] hover:bg-green-50/50",
         iconColor: "text-[#07C160]",
-        qrImage: "/微信二维码.jpg",
+        qrImage: "/wechat-qr.jpg",
         icon: Smartphone,
         active: true
     },
@@ -224,7 +224,7 @@ export default function ConnectPage() {
                                 </div>
                                 <div className="w-full aspect-square border-[3px] border-charcoal p-3 mb-8 bg-neutral-50 shadow-inner">
                                     <img
-                                        src="/微信二维码.jpg"
+                                        src="/wechat-qr.jpg"
                                         alt="个人微信二维码"
                                         className="w-full h-full object-contain"
                                     />
