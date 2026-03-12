@@ -325,10 +325,13 @@ export default function ServicesPage() {
 
                                 <div className="w-56 h-56 bg-white border-[3px] border-charcoal shadow-pop-lg p-2 flex items-center justify-center relative rotate-2 hover:rotate-0 transition-transform cursor-crosshair">
                                     <div className="absolute -top-4 -left-4 bg-pop-orange text-white text-[9px] font-black px-2 py-1 border-[2px] border-charcoal">WeChat</div>
-                                    <QrCode className="w-40 h-40 text-charcoal/20" />
-                                    <div className="absolute inset-0 flex items-center justify-center">
-                                        <p className="text-[10px] font-black bg-charcoal text-pop-yellow px-4 py-2 border-[2px] border-charcoal rotate-[-10deg]">二维码即将更新</p>
-                                    </div>
+                                    <Image 
+                                        src="/微信二维码.jpg" 
+                                        alt="微信二维码" 
+                                        width={200} 
+                                        height={200}
+                                        className="object-contain"
+                                    />
                                 </div>
                             </div>
                         </div>
