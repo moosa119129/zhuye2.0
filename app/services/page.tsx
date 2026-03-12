@@ -326,7 +326,7 @@ export default function ServicesPage() {
                                 <div className="w-56 h-56 bg-white border-[3px] border-charcoal shadow-pop-lg p-2 flex items-center justify-center relative rotate-2 hover:rotate-0 transition-transform cursor-crosshair">
                                     <div className="absolute -top-4 -left-4 bg-pop-orange text-white text-[9px] font-black px-2 py-1 border-[2px] border-charcoal">WeChat</div>
                                     <Image 
-                                        src="/微信二维码.jpg" 
+                                        src="/wechat-qr.jpg" 
                                         alt="微信二维码" 
                                         width={200} 
                                         height={200}
